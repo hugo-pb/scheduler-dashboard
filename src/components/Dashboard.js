@@ -26,16 +26,18 @@ const data = [
 ];
 
 class Dashboard extends Component {
-  state = { loading: false };
+  state = {
+    loading: true,
+  };
+
   render() {
     const dashboardClasses = classnames("dashboard");
 
-    return (
-      <main className={dashboardClasses}>
-        {this.state.loading && <Loading />}
-      </main>
-    );
+    if (this.state.loading) {
+      return <Loading />;
+    }
+
+    return <main className={dashboardClasses} />;
   }
 }
-
 export default Dashboard;
